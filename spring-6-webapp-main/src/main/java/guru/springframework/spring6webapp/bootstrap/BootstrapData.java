@@ -42,6 +42,16 @@ public class BootstrapData implements CommandLineRunner {
 
         Author ahmadSaved = authorRepository.save(ahmad);
         Book nojavaBeanSaved = bookRepository.save(nojavaBean);
+
+        ericSaved.getBooks().add(dddSaved);
+        ahmadSaved.getBooks().add(nojavaBeanSaved);
+
+        authorRepository.save(ericSaved);
+        authorRepository.save(ahmadSaved);
+
+        System.out.println("bootspring");
+        System.out.println("authors: " + authorRepository.count());
+        System.out.println("books: " + bookRepository.count()); 
     }
 
 }
