@@ -10,8 +10,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.khubaib.lmbk.model.Drink;
-import com.khubaib.lmbk.model.DrinkStyle;
+import com.khubaib.lmbk.dto.DrinkDTO;
+import com.khubaib.lmbk.dto.DrinkStyleDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,16 +19,16 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class DrinkServiceImpl implements DrinkService {
 
-    private Map<UUID, Drink> dinkMap;
+    private Map<UUID, DrinkDTO> dinkMap;
 
     public DrinkServiceImpl(){
 
         this.dinkMap = new HashMap<>();
 
-        Drink drink1 = Drink.builder()
+        DrinkDTO drink1 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("Turkish")
-        .drinkStyle(DrinkStyle.KIZILAY)
+        .drinkStyle(DrinkStyleDTO.KIZILAY)
         .version(1)
         .price(new BigDecimal("12.99"))
         .quantityOnHand(20)
@@ -37,10 +37,10 @@ public class DrinkServiceImpl implements DrinkService {
         .updatedDate(LocalDateTime.now())
         .build();
 
-        Drink drink2 = Drink.builder()
+        DrinkDTO drink2 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("German")
-        .drinkStyle(DrinkStyle.ZELTER)
+        .drinkStyle(DrinkStyleDTO.ZELTER)
         .version(1)
         .price(new BigDecimal("15.99"))
         .quantityOnHand(10)
@@ -49,10 +49,10 @@ public class DrinkServiceImpl implements DrinkService {
         .updatedDate(LocalDateTime.now())
         .build();
 
-        Drink drink3 = Drink.builder()
+        DrinkDTO drink3 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("Amercian")
-        .drinkStyle(DrinkStyle.GINGER_ALE)
+        .drinkStyle(DrinkStyleDTO.GINGER_ALE)
         .version(1)
         .price(new BigDecimal("20.99"))
         .quantityOnHand(30)
@@ -67,13 +67,49 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public Drink getDrinkById(UUID id) {
+    public DrinkDTO getDrinkById(UUID id) {
         return dinkMap.get(id);
     }
 
     @Override
-    public List<Drink> listDrinks() {
+    public List<DrinkDTO> listDrinks() {
         log.debug("in list drink");
         return new ArrayList<>(dinkMap.values());
+    }
+
+    @Override
+    public DrinkDTO saveDrink(DrinkDTO drink) {
+        DrinkDTO savedDrink = DrinkDTO.builder()
+        .id(UUID.randomUUID())
+        .drinkName(drink.getDrinkName())
+        .drinkStyle(drink.getDrinkStyle())
+        .version(drink.getVersion())
+        .price(drink.getPrice())
+        .quantityOnHand(drink.getQuantityOnHand())
+        .upc(drink.getUpc())
+        .createdDate(LocalDateTime.now())
+        .updatedDate(LocalDateTime.now())
+        .build();
+
+        dinkMap.put(savedDrink.getId(), savedDrink);
+
+        return savedDrink;
+    }
+
+    @Override
+    public void updateById(UUID drinkId, DrinkDTO drink) {
+        DrinkDTO existingDrink = dinkMap.get(drinkId);
+
+        existingDrink.setDrinkName(drink.getDrinkName());
+        existingDrink.setDrinkStyle(drink.getDrinkStyle());
+        existingDrink.setVersion(drink.getVersion());
+        existingDrink.setPrice(drink.getPrice());
+        existingDrink.setQuantityOnHand(drink.getQuantityOnHand());
+        existingDrink.setUpc(drink.getUpc());
+        existingDrink.setCreatedDate(LocalDateTime.now());
+        existingDrink.setUpdatedDate(LocalDateTime.now());
+
+        dinkMap.put(existingDrink.getId(), existingDrink);
+
     }
 }

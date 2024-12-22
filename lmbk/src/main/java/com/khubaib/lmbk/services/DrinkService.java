@@ -3,11 +3,15 @@ package com.khubaib.lmbk.services;
 import java.util.List;
 import java.util.UUID;
 
-import com.khubaib.lmbk.model.Drink;
+import com.khubaib.lmbk.dto.DrinkDTO;
 
 public interface DrinkService {
 
-    Drink getDrinkById(UUID id);
+    DrinkDTO getDrinkById(UUID id);
 
-    List<Drink> listDrinks();
+    List<DrinkDTO> listDrinks();
+
+    DrinkDTO saveDrink(DrinkDTO drink);
+
+    void updateById(UUID drinkId, DrinkDTO drink);
 }
