@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
+import com.khubaib.lmbk.mappers.DrinkMapper;
 import com.khubaib.lmbk.services.DrinkService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,7 @@ public class DrinkController {
     @PutMapping("{drinkId}")
     public ResponseEntity<HttpStatus.Series> updateById(@PathVariable("drinkId") UUID drinkId, @RequestBody DrinkDTO drink) {
 
-        drinkService.updateById(drinkId, drink);
+        drinkService.updateDrinkById(drinkId, drink);
 
         return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
     }
@@ -39,7 +40,7 @@ public class DrinkController {
     @PostMapping
     public ResponseEntity<HttpStatus.Series> handlePost(@RequestBody DrinkDTO drink) {
 
-        DrinkDTO savedDrink = drinkService.saveDrink(drink);
+        DrinkDTO savedDrink = drinkService.saveNewDrink(drink);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("location", "/api/v1/drinks/"+savedDrink.getId());
@@ -51,7 +52,7 @@ public class DrinkController {
     @RequestMapping(method = RequestMethod.GET, value = "{drinkId}")
     public DrinkDTO getDrinkById(@PathVariable("drinkId") UUID drinkId) {
         log.debug("In controller");
-        return drinkService.getDrinkById(drinkId);
+        return drinkService.getDrinkById(drinkId).orElseThrow();
     }
 
     @RequestMapping(method = RequestMethod.GET)

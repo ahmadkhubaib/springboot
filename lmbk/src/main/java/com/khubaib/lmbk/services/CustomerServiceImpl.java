@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -58,9 +59,9 @@ public class CustomerServiceImpl implements CustomerService{
     };
 
     @Override
-    public CustomerDTO getCustomerById(UUID customerId) {
+    public Optional<CustomerDTO> getCustomerById(UUID customerId) {
         log.debug("in getCustomerById");
-        return customerMap.get(customerId);
+        return Optional.of(customerMap.get(customerId));
     }
 
     @Override
@@ -70,7 +71,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public CustomerDTO saveCustomer(CustomerDTO customer) {
+    public CustomerDTO saveNewCustomer(CustomerDTO customer) {
         CustomerDTO savedCustomer = 
         CustomerDTO.builder()
         .id(UUID.randomUUID())
@@ -86,7 +87,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public void updateCustomer(UUID customerId, CustomerDTO customer) {
+    public void updateCustomerById(UUID customerId, CustomerDTO customer) {
         CustomerDTO existingCustomer = customerMap.get(customerId);
 
         customer.setCustomerName(customer.getCustomerName());
@@ -97,7 +98,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public void deleteCustomer(UUID customerId) {
+    public void deleteCustomerById(UUID customerId) {
         customerMap.remove(customerId);
     }
 

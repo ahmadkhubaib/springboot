@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class DrinkServiceImpl implements DrinkService {
 
-    private Map<UUID, DrinkDTO> dinkMap;
+    private Map<UUID, DrinkDTO> drinkMap;
 
     public DrinkServiceImpl(){
 
-        this.dinkMap = new HashMap<>();
+        this.drinkMap = new HashMap<>();
 
         DrinkDTO drink1 = DrinkDTO.builder()
         .id(UUID.randomUUID())
@@ -61,24 +62,24 @@ public class DrinkServiceImpl implements DrinkService {
         .updatedDate(LocalDateTime.now())
         .build();
 
-        dinkMap.put(drink1.getId(), drink1);
-        dinkMap.put(drink2.getId(), drink2);
-        dinkMap.put(drink3.getId(), drink3);
+        drinkMap.put(drink1.getId(), drink1);
+        drinkMap.put(drink2.getId(), drink2);
+        drinkMap.put(drink3.getId(), drink3);
     }
 
     @Override
-    public DrinkDTO getDrinkById(UUID id) {
-        return dinkMap.get(id);
+    public Optional<DrinkDTO> getDrinkById(UUID id) {
+        return Optional.of(drinkMap.get(id));
     }
 
     @Override
     public List<DrinkDTO> listDrinks() {
         log.debug("in list drink");
-        return new ArrayList<>(dinkMap.values());
+        return new ArrayList<>(drinkMap.values());
     }
 
     @Override
-    public DrinkDTO saveDrink(DrinkDTO drink) {
+    public DrinkDTO saveNewDrink(DrinkDTO drink) {
         DrinkDTO savedDrink = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName(drink.getDrinkName())
@@ -91,14 +92,14 @@ public class DrinkServiceImpl implements DrinkService {
         .updatedDate(LocalDateTime.now())
         .build();
 
-        dinkMap.put(savedDrink.getId(), savedDrink);
+        drinkMap.put(savedDrink.getId(), savedDrink);
 
         return savedDrink;
     }
 
     @Override
-    public void updateById(UUID drinkId, DrinkDTO drink) {
-        DrinkDTO existingDrink = dinkMap.get(drinkId);
+    public void updateDrinkById(UUID drinkId, DrinkDTO drink) {
+        DrinkDTO existingDrink = drinkMap.get(drinkId);
 
         existingDrink.setDrinkName(drink.getDrinkName());
         existingDrink.setDrinkStyle(drink.getDrinkStyle());
@@ -109,7 +110,12 @@ public class DrinkServiceImpl implements DrinkService {
         existingDrink.setCreatedDate(LocalDateTime.now());
         existingDrink.setUpdatedDate(LocalDateTime.now());
 
-        dinkMap.put(existingDrink.getId(), existingDrink);
+        drinkMap.put(existingDrink.getId(), existingDrink);
 
+    }
+
+    @Override
+    public void deleteDrinkById(UUID drinkId) {
+        drinkMap.remove(drinkId);
     }
 }

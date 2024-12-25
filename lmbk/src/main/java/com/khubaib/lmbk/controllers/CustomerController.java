@@ -29,39 +29,43 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @DeleteMapping("{customerId}")
+    public static final String CUSTOMER_PATH = "/api/v1/customer";
+    public static final String CUSTOMER_PATH_ID = CUSTOMER_PATH + "/{customerId}";
+
+
+    @DeleteMapping(CUSTOMER_PATH_ID)
     public ResponseEntity<HttpStatus.Series> deleteCustomer(@PathVariable("{customerId}") UUID customerId) {
 
-        customerService.deleteCustomer(customerId);
+        customerService.deleteCustomerById(customerId);
 
         return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("{customerId}")
+    @PutMapping(CUSTOMER_PATH_ID)
     public ResponseEntity<HttpStatus.Series> updateCustomerById(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDTO customer){
 
-        customerService.updateCustomer(customerId, customer);
+        customerService.updateCustomerById(customerId, customer);
 
         return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping
+    @PostMapping(CUSTOMER_PATH)
     public ResponseEntity<HttpStatus.Series> handlePost(@RequestBody CustomerDTO customer) {
 
-        CustomerDTO savedCustomer = customerService.saveCustomer(customer);
+        CustomerDTO savedCustomer = customerService.saveNewCustomer(customer);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("location", "/api/v1/customers/" + savedCustomer.getId());
+        headers.add("location", CUSTOMER_PATH + savedCustomer.getId().toString());
 
         return new ResponseEntity<HttpStatus.Series>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "{customerId}")
+    @RequestMapping(value = CUSTOMER_PATH_ID)
     public CustomerDTO getCustomerById(@PathVariable("customerId") UUID customerId) {
-        return customerService.getCustomerById(customerId);
+        return customerService.getCustomerById(customerId).orElseThrow();
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(CUSTOMER_PATH)
     public List<CustomerDTO> getCustomers() {
         return customerService.getCustomers();
     }
