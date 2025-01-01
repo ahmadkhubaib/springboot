@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.khubaib.lmbk.dto.CustomerDTO;
@@ -24,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -34,17 +32,21 @@ public class CustomerController {
 
 
     @DeleteMapping(CUSTOMER_PATH_ID)
-    public ResponseEntity<HttpStatus.Series> deleteCustomer(@PathVariable("{customerId}") UUID customerId) {
+    public ResponseEntity<HttpStatus.Series> deleteCustomer(@PathVariable("{customerId}") UUID customerId) throws Exception {
 
-        customerService.deleteCustomerById(customerId);
+        if(!customerService.deleteCustomerById(customerId)){
+            throw new Exception("Customer not found");
+        }
 
         return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping(CUSTOMER_PATH_ID)
-    public ResponseEntity<HttpStatus.Series> updateCustomerById(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDTO customer){
+    public ResponseEntity<HttpStatus.Series> updateCustomerById(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDTO customer) throws Exception{
 
-        customerService.updateCustomerById(customerId, customer);
+        if(customerService.updateCustomerById(customerId, customer).isEmpty()){
+            throw new Exception("Customer not found");
+        }
 
         return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
     }
@@ -55,7 +57,7 @@ public class CustomerController {
         CustomerDTO savedCustomer = customerService.saveNewCustomer(customer);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("location", CUSTOMER_PATH + savedCustomer.getId().toString());
+        headers.add("location", CUSTOMER_PATH + "/" + savedCustomer.getId().toString());
 
         return new ResponseEntity<HttpStatus.Series>(headers, HttpStatus.CREATED);
     }

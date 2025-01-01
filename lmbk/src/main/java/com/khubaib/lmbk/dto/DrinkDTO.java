@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.khubaib.lmbk.entities.DrinkStyle;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,7 +17,7 @@ public class DrinkDTO {
     private String drinkName;
     private Integer version;
     private BigDecimal price;
-    private DrinkStyleDTO drinkStyle;
+    private DrinkStyle drinkStyle;
     private Integer quantityOnHand;
     private String upc;
     private LocalDateTime createdDate;

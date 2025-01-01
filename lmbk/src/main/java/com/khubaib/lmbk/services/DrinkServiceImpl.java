@@ -12,7 +12,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
-import com.khubaib.lmbk.dto.DrinkStyleDTO;
+import com.khubaib.lmbk.entities.DrinkStyle;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +29,7 @@ public class DrinkServiceImpl implements DrinkService {
         DrinkDTO drink1 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("Turkish")
-        .drinkStyle(DrinkStyleDTO.KIZILAY)
+        .drinkStyle(DrinkStyle.KIZILAY)
         .version(1)
         .price(new BigDecimal("12.99"))
         .quantityOnHand(20)
@@ -41,7 +41,7 @@ public class DrinkServiceImpl implements DrinkService {
         DrinkDTO drink2 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("German")
-        .drinkStyle(DrinkStyleDTO.ZELTER)
+        .drinkStyle(DrinkStyle.ZELTER)
         .version(1)
         .price(new BigDecimal("15.99"))
         .quantityOnHand(10)
@@ -53,7 +53,7 @@ public class DrinkServiceImpl implements DrinkService {
         DrinkDTO drink3 = DrinkDTO.builder()
         .id(UUID.randomUUID())
         .drinkName("Amercian")
-        .drinkStyle(DrinkStyleDTO.GINGER_ALE)
+        .drinkStyle(DrinkStyle.GINGER_ALE)
         .version(1)
         .price(new BigDecimal("20.99"))
         .quantityOnHand(30)
@@ -98,7 +98,7 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public void updateDrinkById(UUID drinkId, DrinkDTO drink) {
+    public Optional<DrinkDTO> updateDrinkById(UUID drinkId, DrinkDTO drink) {
         DrinkDTO existingDrink = drinkMap.get(drinkId);
 
         existingDrink.setDrinkName(drink.getDrinkName());
@@ -112,10 +112,14 @@ public class DrinkServiceImpl implements DrinkService {
 
         drinkMap.put(existingDrink.getId(), existingDrink);
 
+        return Optional.of(existingDrink);
+
     }
 
     @Override
-    public void deleteDrinkById(UUID drinkId) {
+    public Boolean deleteDrinkById(UUID drinkId) {
         drinkMap.remove(drinkId);
+
+        return true;
     }
 }

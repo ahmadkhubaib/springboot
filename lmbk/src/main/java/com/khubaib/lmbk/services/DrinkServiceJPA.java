@@ -3,10 +3,10 @@ package com.khubaib.lmbk.services;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
@@ -47,18 +47,47 @@ public class DrinkServiceJPA implements DrinkService {
     }
     @Override
     public DrinkDTO saveNewDrink(DrinkDTO drink) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveNewDrink'");
+        return
+            drinkMapper
+            .drinkToDrinkDto(
+                drinkRepository
+                .save(
+                    drinkMapper
+                    .drinkDtoToDrink(drink)
+                )
+            );
     }
     @Override
-    public void updateDrinkById(UUID drinkId, DrinkDTO drink) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateDrinkById'");
+    public Optional<DrinkDTO> updateDrinkById(UUID drinkId, DrinkDTO drink) {
+       AtomicReference<Optional<DrinkDTO>> atomicReference = new AtomicReference<>();
+
+       drinkRepository
+       .findById(drinkId)
+       .ifPresentOrElse(foundDrink -> {
+            foundDrink.setDrinkName(drink.getDrinkName());
+            foundDrink.setDrinkStyle(drink.getDrinkStyle());
+            foundDrink.setPrice(drink.getPrice());
+            atomicReference.set(
+                Optional.of(
+                    drinkMapper.drinkToDrinkDto(
+                        drinkRepository.save(foundDrink)
+                    )
+                )
+            );
+            drinkRepository.save(foundDrink);
+       }, () -> {
+            atomicReference.set(Optional.empty());
+       });
+       return atomicReference.get();
     }
     @Override
-    public void deleteDrinkById(UUID drinkId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteDrinkById'");
+    public Boolean deleteDrinkById(UUID drinkId) {
+       
+       if(drinkRepository.existsById(drinkId)){
+        drinkRepository.deleteById(drinkId);
+        return true;
+       }
+       return false;
     }
 
 }
