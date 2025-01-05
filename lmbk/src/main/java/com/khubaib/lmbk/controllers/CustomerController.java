@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,7 +53,7 @@ public class CustomerController {
     }
 
     @PostMapping(CUSTOMER_PATH)
-    public ResponseEntity<HttpStatus.Series> handlePost(@RequestBody CustomerDTO customer) {
+    public ResponseEntity<HttpStatus.Series> handlePost(@Validated @RequestBody CustomerDTO customer) {
 
         CustomerDTO savedCustomer = customerService.saveNewCustomer(customer);
 
