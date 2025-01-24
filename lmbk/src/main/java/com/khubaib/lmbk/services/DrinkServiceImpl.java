@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class DrinkServiceImpl implements DrinkService {
 
-    private Map<UUID, DrinkDTO> drinkMap;
+    private final Map<UUID, DrinkDTO> drinkMap;
 
     public DrinkServiceImpl(){
 
@@ -73,7 +73,7 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public List<DrinkDTO> listDrinks() {
+    public List<DrinkDTO> listDrinks(String drinkName) {
         log.debug("in list drink");
         return new ArrayList<>(drinkMap.values());
     }

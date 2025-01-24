@@ -1,0 +1,101 @@
+row,count.x,abv,ibu,id,drink,style,manufacture_id,ounces,style2,count.y,city,state,label
+1,150,5.0,50,101,Ayran,ULUDAG,2501,12.0,Salty,200,Los Angeles,CA,Ayran Refreshment
+2,200,5.2,45,102,Lemonade,ZELTER,2502,10.0,Citrus,220,New York,NY,Lemon Zest
+3,180,6.1,40,103,Kola,GINGER_ALE,2503,8.0,Sweet,250,San Diego,CA,Classic Cola
+4,120,5.3,35,104,Peach Juice,KIZILAY,2504,14.0,Fruity,180,Boston,MA,Peachy Keen
+5,150,4.8,60,105,Ginger Ale,GINGER_ALE,2505,12.0,Spicy,200,Chicago,IL,Ginger Kick
+6,200,5.0,50,106,Lime Soda,ULUDAG,2506,16.0,Tart,210,Austin,TX,Lime Sparkle
+7,170,5.7,45,107,Apple Juice,ZELTER,2507,10.0,Sweet,230,Portland,OR,Crisp Apple
+8,140,5.1,50,108,Orange Drink,KIZILAY,2508,12.0,Citrus,200,Los Angeles,CA,Orange Delight
+9,120,6.3,35,109,Cranberry Juice,ZELTER,2509,14.0,Tart,210,Denver,CO,Cranberry Burst
+10,160,5.5,60,110,Fruit Punch,GINGER_ALE,2510,8.0,Fruity,220,Seattle,WA,Vibrant Punch
+11,150,5.6,40,111,Tomato Juice,KIZILAY,2511,12.0,Earthy,230,Chicago,IL,Tomato Boost
+12,130,5.8,45,112,Mint Lemonade,GINGER_ALE,2512,16.0,Herbal,240,Portland,OR,Minty Lemon
+13,180,6.0,35,113,Pineapple Juice,ZELTER,2513,12.0,Tropical,220,Austin,TX,Pineapple Bliss
+14,140,5.3,40,114,Ginger-Apple Juice,KIZILAY,2514,14.0,Spicy,210,Boston,MA,Apple Spice
+15,150,5.2,60,115,Tropical Juice,GINGER_ALE,2515,8.0,Tropical,250,Seattle,WA,Tropical Kick
+16,120,4.9,50,116,Strawberry Juice,ZELTER,2516,12.0,Sweet,180,Chicago,IL,Strawberry Fresh
+17,170,5.9,30,117,Carrot Juice,KIZILAY,2517,14.0,Earthy,210,New York,NY,Carrot Glow
+18,140,5.4,45,118,Lemon-Orange Juice,ZELTER,2518,10.0,Citrus,230,Los Angeles,CA,Citrus Splash
+19,180,6.0,50,119,Passion Fruit Juice,GINGER_ALE,2519,12.0,Tropical,240,San Diego,CA,Passion Delight
+20,200,5.1,40,120,Lychee Juice,KIZILAY,2520,16.0,Tropical,220,Portland,OR,Exotic Lychee
+21,150,5.0,45,121,Lemon Iced Tea,ZELTER,2521,10.0,Citrus,250,Seattle,WA,Iced Lemon Tea
+22,130,6.2,30,122,Watermelon Juice,GINGER_ALE,2522,12.0,Sweet,240,Austin,TX,Watermelon Bliss
+23,160,5.3,40,123,Grape Juice,KIZILAY,2523,14.0,Sweet,230,Denver,CO,Grape Fresh
+24,140,5.5,35,124,Orange-Apple Juice,ZELTER,2524,8.0,Citrus,210,Chicago,IL,Apple Orange
+25,150,5.2,45,125,Cucumber Lemonade,GINGER_ALE,2525,12.0,Herbal,200,New York,NY,Cucumber Fresh
+26,120,6.1,60,126,Peach-Apple Juice,KIZILAY,2526,14.0,Sweet,230,Portland,OR,Peach Apple Bliss
+27,130,5.0,50,127,Papaya Juice,ZELTER,2527,10.0,Tropical,210,Los Angeles,CA,Papaya Rush
+28,100,5.4,45,128,Tropical Juice,GINGER_ALE,2528,12.0,Tropical,230,Portland,OR,Tropical Guava
+29,120,5.1,45,129,Passionfruit Juice,KIZILAY,2529,10.0,Sweet,180,New York,NY,Passionate Juice
+30,140,4.8,40,130,Chia Fresca,ZELTER,2530,12.0,Superfood,210,Seattle,WA,Super Chia
+31,150,6.0,30,131,Lemon Iced Tea,GINGER_ALE,2531,12.0,Citrus,200,Chicago,IL,Lemon Iced Tea
+32,100,5.5,45,132,Fruit Punch,KIZILAY,2532,16.0,Fruity,180,Austin,TX,Vibrant Fruit Punch
+33,200,4.9,25,133,Water Kefir,ULUDAG,2533,10.0,Fermented,220,San Diego,CA,Fermented Water
+34,120,5.6,40,134,Carrot Juice,ZELTER,2534,14.0,Earthy,190,Seattle,WA,Healthy Carrot
+35,150,6.1,50,135,Aloe Vera Juice,KIZILAY,2535,12.0,Herbal,210,Los Angeles,CA,Aloe Refresh
+36,180,5.2,35,136,Apricot Juice,ZELTER,2536,8.0,Sweet,230,Portland,OR,Sweet Apricot
+37,140,6.0,60,137,Plum Juice,GINGER_ALE,2537,10.0,Tart,190,Austin,TX,Tart Plum
+38,160,5.3,30,138,Pear Juice,KIZILAY,2538,12.0,Sweet,220,Denver,CO,Refreshing Pear
+39,180,6.4,50,139,Papaya Juice,ZELTER,2539,10.0,Tropical,240,Boston,MA,Tropical Papaya
+40,140,5.5,45,140,Red Grapefruit Juice,ULUDAG,2540,14.0,Citrus,200,Los Angeles,CA,Grapefruit Bliss
+41,120,5.0,40,141,Carrot-Apple Juice,KIZILAY,2541,10.0,Earthy,150,Seattle,WA,Carrot-Apple Twist
+42,160,6.1,50,142,Kiwi-Strawberry Juice,ZELTER,2542,12.0,Tropical,180,Portland,OR,Kiwi Strawberry
+43,200,5.5,60,143,Lemon-Basil Juice,GINGER_ALE,2543,10.0,Herbal,250,Denver,CO,Lemon-Basil Delight
+44,150,4.7,35,144,Mango-Pineapple Juice,KIZILAY,2544,14.0,Fruity,220,Chicago,IL,Mango Pineapple
+45,130,5.4,30,145,Cucumber Lemonade,ZELTER,2545,8.0,Citrus,190,Los Angeles,CA,Refreshing Cucumber
+46,170,6.2,50,146,Strawberry Juice,KIZILAY,2546,12.0,Sweet,230,San Diego,CA,Fresh Strawberry
+47,140,5.8,45,147,Apple-Orange Juice,GINGER_ALE,2547,14.0,Citrus,210,Portland,OR,Apple Orange
+48,130,5.1,50,148,Ginger-Pineapple Juice,ZELTER,2548,10.0,Tropical,220,Seattle,WA,Pineapple Ginger
+49,160,5.6,30,149,Carrot-Mango Juice,KIZILAY,2549,16.0,Tropical,240,New York,NY,Mango Carrot
+50,180,5.9,40,150,Lemon-Lime Juice,GINGERALE,2550,12.0,Citrus,250,Austin,TX,Lime Lemon
+51,140,5.2,35,151,Cherry Juice,ZELTER,2551,12.0,Sweet,210,Austin,TX,Cherry Delight
+52,130,4.9,50,152,Pineapple Coconut,KIZILAY,2552,10.0,Tropical,200,San Diego,CA,Tropical Bliss
+53,120,5.5,45,153,Pear-Strawberry Juice,ZELTER,2553,14.0,Sweet,230,New York,NY,Strawberry Pear
+54,150,5.0,60,154,Cranberry Lemonade,GINGER_ALE,2554,8.0,Citrus,240,Boston,MA,Cranberry Twist
+55,170,6.2,40,155,Pomegranate-Citrus,ULUDAG,2555,16.0,Citrus,250,Seattle,WA,Citrusy Pomegranate
+56,140,5.4,30,156,Ginger-Lime Juice,KIZILAY,2556,12.0,Spicy,180,Chicago,IL,Spicy Ginger Lime
+57,200,6.1,50,157,Kiwi-Mango Juice,ZELTER,2557,14.0,Tropical,230,Austin,TX,Tropical Kiwi Mango
+58,150,4.8,35,158,Lime-Strawberry Juice,GINGER_ALE,2558,10.0,Sweet,220,Denver,CO,Sweet Lime Strawberry
+59,180,5.6,45,159,Peach-Pineapple Juice,KIZILAY,2559,16.0,Tropical,240,San Diego,CA,Peach Pineapple
+60,200,6.3,50,160,Coconut-Lime Juice,ZELTER,2560,8.0,Citrus,260,Portland,OR,Citrusy Coconut
+61,120,5.0,30,161,Blackberry Juice,GINGER_ALE,2561,14.0,Sweet,180,Chicago,IL,Blackberry Bliss
+62,130,5.3,35,162,Tangerine Juice,KIZILAY,2562,10.0,Citrus,210,Boston,MA,Tangy Tangerine
+63,100,6.0,40,163,Sweet Limeade,ZELTER,2563,12.0,Sweet,230,Los Angeles,CA,Limeade Sweetness
+64,160,6.2,45,164,Cantaloupe Juice,KIZILAY,2564,16.0,Sweet,240,New York,NY,Sweet Cantaloupe
+65,130,4.5,50,165,Apricot-Pineapple Juice,ZELTER,2565,10.0,Tropical,210,Seattle,WA,Tropical Apricot
+66,150,5.3,60,166,Pear-Mango Juice,GINGER_ALE,2566,12.0,Sweet,230,Austin,TX,Mango Pear
+67,140,5.5,30,167,Papaya-Citrus Juice,KIZILAY,2567,16.0,Citrus,250,San Diego,CA,Citrusy Papaya
+68,180,5.8,50,168,Lemon-Basil Iced Tea,ZELTER,2568,10.0,Herbal,240,Portland,OR,Basil Lemon Tea
+69,150,4.9,35,169,Mulberry-Lime Juice,GINGER_ALE,2569,14.0,Tart,200,Denver,CO,Mulberry Lime
+70,130,5.1,45,170,Pomegranate-Strawberry Juice,KIZILAY,2570,12.0,Sweet,210,Los Angeles,CA,Pomegranate Berry
+71,140,5.2,60,171,Blackberry-Peach Juice,ZELTER,2571,16.0,Sweet,240,Seattle,WA,Blackberry Peach
+72,160,6.0,30,172,Pineapple-Strawberry Juice,KIZILAY,2572,10.0,Tropical,250,Portland,OR,Pineapple Strawberry
+73,180,5.7,40,173,Kiwi-Orange Juice,ZELTER,2573,12.0,Citrus,260,Chicago,IL,Citrusy Kiwi
+74,200,6.5,45,174,Guava-Strawberry Juice,GINGER_ALE,2574,14.0,Tropical,270,Los Angeles,CA,Strawberry Guava
+75,150,5.2,30,175,Pineapple-Guava Juice,KIZILAY,2575,16.0,Tropical,280,San Diego,CA,Guava Pineapple
+76,130,5.3,40,176,Lemon-Raspberry Juice,ZELTER,2576,10.0,Sweet,220,New York,NY,Raspberry Lemon
+77,180,6.1,50,177,Strawberry-Coconut Juice,GINGER_ALE,2577,12.0,Tropical,230,Austin,TX,Coconut Berry
+78,140,4.9,30,178,Carrot-Apple-Cucumber Juice,KIZILAY,2578,8.0,Earthy,210,Denver,CO,Earthy Blend
+79,160,6.3,40,179,Peach-Papaya Juice,ZELTER,2579,12.0,Tropical,240,San Diego,CA,Peach Papaya
+80,150,5.1,60,180,Blackberry-Citrus Juice,KIZILAY,2580,16.0,Citrus,250,Seattle,WA,Citrusy Blackberry
+81,120,5.7,45,181,Strawberry-Lemonade,GINGER_ALE,2581,12.0,Sweet,200,Portland,OR,Lemonade Burst
+82,130,5.6,50,182,Tomato-Pineapple Juice,ZELTER,2582,14.0,Tart,220,San Diego,CA,Pineapple Tomato
+83,160,6.4,40,183,Peach-Orange Juice,KIZILAY,2583,8.0,Sweet,240,Austin,TX,Peachy Orange
+84,140,5.9,35,184,Guava-Papaya Juice,ZELTER,2584,12.0,Tropical,230,Chicago,IL,Guava Papaya
+85,180,5.5,60,185,Apple-Strawberry Juice,GINGER_ALE,2585,10.0,Sweet,210,Portland,OR,Strawberry Apple
+86,150,5.3,45,186,Cherry-Pomegranate Juice,KIZILAY,2586,12.0,Sweet,220,Boston,MA,Pomegranate Cherry
+87,130,5.0,30,187,Lemon-Ginger Juice,ZELTER,2587,8.0,Spicy,200,Los Angeles,CA,Lemon Ginger
+88,120,5.1,40,188,Kiwi-Papaya Juice,GINGER_ALE,2588,12.0,Tropical,210,San Diego,CA,Kiwi Papaya
+89,200,5.2,50,189,Apple-Carrot Juice,ZELTER,2589,10.0,Earthy,220,Austin,TX,Apple Carrot
+90,140,5.4,30,190,Strawberry-Watermelon Juice,KIZILAY,2590,12.0,Sweet,230,Seattle,WA,Strawberry Watermelon
+91,150,5.3,45,191,Plum-Apple Juice,ZELTER,2591,14.0,Tart,240,Boston,MA,Apple Plum
+92,160,5.0,50,192,Peach-Basil Juice,GINGER_ALE,2592,12.0,Herbal,250,San Diego,CA,Peach Basil
+93,170,6.0,40,193,Pineapple-Papaya Juice,KIZILAY,2593,10.0,Tropical,260,Austin,TX,Papaya Pineapple
+94,120,5.7,30,194,Lemon-Mango Juice,ZELTER,2594,12.0,Sweet,230,Portland,OR,Lemon Mango
+95,150,5.8,50,195,Watermelon-Lime Juice,GINGER_ALE,2595,8.0,Citrus,220,Chicago,IL,Lime Watermelon
+96,140,5.3,60,196,Orange-Strawberry Juice,KIZILAY,2596,14.0,Sweet,210,San Diego,CA,Orange Strawberry
+97,160,5.5,30,197,Carrot-Orange Juice,ZELTER,2597,10.0,Earthy,240,Portland,OR,Carrot Orange
+98,150,5.2,50,198,Pineapple-Guava Juice,KIZILAY,2598,16.0,Tropical,250,Seattle,WA,Guava Pineapple
+99,130,5.6,40,199,Ginger-Pear Juice,GINGER_ALE,2599,12.0,Spicy,230,Denver,CO,Ginger Pear
+100,180,5.4,35,200,Cherry-Citrus Juice,KIZILAY,2600,14.0,Sweet,240,Boston,MA,Cherry Citrus

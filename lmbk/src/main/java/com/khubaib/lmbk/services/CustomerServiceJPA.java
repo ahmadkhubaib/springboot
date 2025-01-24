@@ -32,7 +32,7 @@ public class CustomerServiceJPA implements CustomerService{
               .customerToCustomerDto(
                 customerRepository.findById(customerId)
                 .orElse(null)
-              )  
+              )
             );
     }
     @Override
@@ -71,9 +71,7 @@ public class CustomerServiceJPA implements CustomerService{
                     )
                 )
             );
-        }, () -> {
-            atomicReference.set(Optional.empty());
-        });
+        }, () -> atomicReference.set(Optional.empty()));
         return atomicReference.get();
     }
     @Override

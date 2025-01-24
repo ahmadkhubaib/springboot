@@ -37,7 +37,7 @@ public class DrinkServiceJPA implements DrinkService {
     
     }
     @Override
-    public List<DrinkDTO> listDrinks() {
+    public List<DrinkDTO> listDrinks(String drinkName) {
         return 
             drinkRepository
             .findAll()
@@ -75,9 +75,7 @@ public class DrinkServiceJPA implements DrinkService {
                 )
             );
             drinkRepository.save(foundDrink);
-       }, () -> {
-            atomicReference.set(Optional.empty());
-       });
+       }, () -> atomicReference.set(Optional.empty()));
        return atomicReference.get();
     }
     @Override

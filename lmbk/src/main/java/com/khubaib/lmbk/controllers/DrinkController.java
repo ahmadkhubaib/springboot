@@ -8,8 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -37,7 +38,7 @@ public class DrinkController {
         if(!drinkService.deleteDrinkById(drinkId)){
             throw new Exception("Could not delete drink");
         }
-        return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping(DRINK_PATH_ID)
@@ -47,7 +48,7 @@ public class DrinkController {
             throw new Exception("Drink not found");
         }
 
-        return new ResponseEntity<HttpStatus.Series>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PostMapping(DRINK_PATH)
@@ -58,18 +59,18 @@ public class DrinkController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("location", DRINK_PATH + "/" + savedDrink.getId().toString());
 
-        return new ResponseEntity<HttpStatus.Series>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
 
-    @RequestMapping(value = DRINK_PATH_ID)
+    @GetMapping(value = DRINK_PATH_ID)
     public DrinkDTO getDrinkById(@PathVariable("drinkId") UUID drinkId) {
         log.debug("In controller");
         return drinkService.getDrinkById(drinkId).orElseThrow();
     }
 
-    @RequestMapping(DRINK_PATH)
-    public List<DrinkDTO> listDrinks() {
-        return drinkService.listDrinks();
+    @GetMapping(DRINK_PATH)
+    public List<DrinkDTO> listDrinks(@RequestParam(required = false) String drinkName) {
+        return drinkService.listDrinks(drinkName);
     }
 }

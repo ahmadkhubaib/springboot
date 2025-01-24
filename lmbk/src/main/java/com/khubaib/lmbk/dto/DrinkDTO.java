@@ -28,7 +28,6 @@ public class DrinkDTO {
     @NotNull
     private BigDecimal price;
 
-    @NotBlank
     @NotNull
     private DrinkStyle drinkStyle;
     

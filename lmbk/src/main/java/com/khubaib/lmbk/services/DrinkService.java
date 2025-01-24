@@ -10,7 +10,7 @@ public interface DrinkService {
 
     Optional<DrinkDTO> getDrinkById(UUID id);
 
-    List<DrinkDTO> listDrinks();
+    List<DrinkDTO> listDrinks(String drinkName);
 
     DrinkDTO saveNewDrink(DrinkDTO drink);
 
