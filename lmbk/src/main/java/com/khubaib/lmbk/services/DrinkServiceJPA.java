@@ -6,6 +6,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
+import com.khubaib.lmbk.entities.Drink;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import com.khubaib.lmbk.mappers.DrinkMapper;
 import com.khubaib.lmbk.repositories.DrinkRepository;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -38,13 +40,25 @@ public class DrinkServiceJPA implements DrinkService {
     }
     @Override
     public List<DrinkDTO> listDrinks(String drinkName) {
-        return 
-            drinkRepository
-            .findAll()
+
+        List<Drink> drinkList;
+
+        if(StringUtils.hasText(drinkName)){
+            drinkList = listDrinkByName(drinkName);
+        } else{
+            drinkList = drinkRepository.findAll();
+        }
+        return
+            drinkList
             .stream()
             .map(drinkMapper::drinkToDrinkDto)
             .collect(Collectors.toList());
     }
+
+    public List<Drink> listDrinkByName(String drinkName) {
+        return drinkRepository.findAllByDrinkNameIgnoreCase("%" + drinkName + "%");
+    }
+
     @Override
     public DrinkDTO saveNewDrink(DrinkDTO drink) {
         return

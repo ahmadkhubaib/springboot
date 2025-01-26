@@ -11,8 +11,4 @@ public class DrinkControllerTest {
 
     @Autowired
     DrinkController drinkController;
-    @Test
-    void testGetDrinkById() {
-        System.out.println(drinkController.getDrinkById(UUID.randomUUID()));
-    }
 }
