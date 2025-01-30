@@ -1,8 +1,9 @@
 package com.khubaib.lmbk.controllers;
 
-import java.util.List;
 import java.util.UUID;
 
+import com.khubaib.lmbk.entities.DrinkStyle;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -70,7 +71,12 @@ public class DrinkController {
     }
 
     @GetMapping(DRINK_PATH)
-    public List<DrinkDTO> listDrinks(@RequestParam(required = false) String drinkName) {
-        return drinkService.listDrinks(drinkName);
+    public Page<DrinkDTO> listDrinks(
+            @RequestParam(required = false) String drinkName,
+            @RequestParam(required = false) DrinkStyle drinkStyle,
+            @RequestParam(required = false) boolean showInventory,
+            @RequestParam(required = false) Integer pageSize,
+            @RequestParam(required = false) Integer pageNumber) {
+        return drinkService.listDrinks(drinkName, drinkStyle, showInventory, pageSize, pageNumber);
     }
 }

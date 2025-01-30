@@ -16,10 +16,12 @@ public class DrinkCSVServiceImpl implements DrinkCSVService{
     @Override
     public List<DrinkCSVRecord> convertCSV(File csvFile) {
         try {
-            return new CsvToBeanBuilder<DrinkCSVRecord>(new FileReader(csvFile))
+            List<DrinkCSVRecord> records;
+            records = new CsvToBeanBuilder<DrinkCSVRecord>(new FileReader(csvFile))
             .withType(DrinkCSVRecord.class)
             .build()
             .parse();
+            return records;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

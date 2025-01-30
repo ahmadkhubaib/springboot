@@ -1,13 +1,16 @@
 package com.khubaib.lmbk.services;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
 
 import com.khubaib.lmbk.entities.Drink;
+import com.khubaib.lmbk.entities.DrinkStyle;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
@@ -24,6 +27,10 @@ public class DrinkServiceJPA implements DrinkService {
 
     private final DrinkRepository drinkRepository;
     private final DrinkMapper drinkMapper;
+
+    private static final int DEFAULT_PAGE = 0;
+    private static final int DEFAULT_PAGE_SIZE = 25;
+
     @Override
     public Optional<DrinkDTO> getDrinkById(UUID id) {
         return
@@ -39,24 +46,60 @@ public class DrinkServiceJPA implements DrinkService {
     
     }
     @Override
-    public List<DrinkDTO> listDrinks(String drinkName) {
+    public Page<DrinkDTO> listDrinks(String drinkName, DrinkStyle drinkStyle, boolean showInventory, Integer pageSize, Integer pageNumber) {
 
-        List<Drink> drinkList;
+        PageRequest pageRequest = buildPageRequest(pageNumber, pageSize);
 
-        if(StringUtils.hasText(drinkName)){
-            drinkList = listDrinkByName(drinkName);
-        } else{
-            drinkList = drinkRepository.findAll();
+        Page<Drink> drinkPage;
+
+        if((StringUtils.hasText(drinkName)) && (drinkStyle == null)) {
+            drinkPage = listDrinkByName(drinkName, pageRequest);
+            System.out.println(drinkPage);
+        } else if(!(StringUtils.hasText(drinkName)) && (drinkStyle != null)){
+            drinkPage = listDrinkByDrinkStyle(drinkStyle, pageRequest);
+        } else if((StringUtils.hasText(drinkName)) && (drinkStyle != null)){
+            drinkPage = listDrinkByDrinkNameAndDrinkStyle(drinkName, drinkStyle, pageRequest);
+        } else {
+            drinkPage = drinkRepository.findAll(pageRequest);
         }
-        return
-            drinkList
-            .stream()
-            .map(drinkMapper::drinkToDrinkDto)
-            .collect(Collectors.toList());
+
+        if(!showInventory){
+           drinkPage.forEach(drink -> drink.setQuantityOnHand(null));
+        }
+
+        return drinkPage.map(drinkMapper::drinkToDrinkDto);
     }
 
-    public List<Drink> listDrinkByName(String drinkName) {
-        return drinkRepository.findAllByDrinkNameIgnoreCase("%" + drinkName + "%");
+    public PageRequest buildPageRequest(Integer pageNumber, Integer pageSize) {
+        int queryPageNumber;
+        int queryPageSize;
+
+        if(pageNumber != null && pageNumber > 0) {
+            queryPageNumber = pageNumber - 1;
+        } else {
+            queryPageNumber = DEFAULT_PAGE;
+        }
+
+        if(pageSize == null) {
+            queryPageSize = DEFAULT_PAGE_SIZE;
+        } else {
+            queryPageSize = pageSize;
+        }
+
+        Sort sort = Sort.by(Sort.Order.asc("drinkName"));
+
+        return PageRequest.of(queryPageNumber, queryPageSize, sort);
+    }
+
+    public Page<Drink> listDrinkByDrinkStyle(DrinkStyle drinkStyle, Pageable pageable) {
+        return drinkRepository.findAllByDrinkStyle(drinkStyle, pageable);
+    }
+    public Page<Drink> listDrinkByDrinkNameAndDrinkStyle(String drinkName, DrinkStyle drinkStyle, Pageable pageable) {
+        return drinkRepository.findAllByDrinkNameAndDrinkStyle(drinkName, drinkStyle, pageable);
+    }
+
+    public Page<Drink> listDrinkByName(String drinkName, Pageable pageable) {
+        return drinkRepository.findAllByDrinkNameIgnoreCase(drinkName, pageable);
     }
 
     @Override

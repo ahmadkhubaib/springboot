@@ -9,8 +9,8 @@ row,count.x,abv,ibu,id,drink,style,manufacture_id,ounces,style2,count.y,city,sta
 8,140,5.1,50,108,Orange Drink,KIZILAY,2508,12.0,Citrus,200,Los Angeles,CA,Orange Delight
 9,120,6.3,35,109,Cranberry Juice,ZELTER,2509,14.0,Tart,210,Denver,CO,Cranberry Burst
 10,160,5.5,60,110,Fruit Punch,GINGER_ALE,2510,8.0,Fruity,220,Seattle,WA,Vibrant Punch
-11,150,5.6,40,111,Tomato Juice,KIZILAY,2511,12.0,Earthy,230,Chicago,IL,Tomato Boost
-12,130,5.8,45,112,Mint Lemonade,GINGER_ALE,2512,16.0,Herbal,240,Portland,OR,Minty Lemon
+11,150,5.6,40,111,Kola,KIZILAY,2511,12.0,Earthy,230,Chicago,IL,Kola
+12,130,5.8,45,112,Lemonade,GINGER_ALE,2512,16.0,Herbal,240,Portland,OR,Lemon
 13,180,6.0,35,113,Pineapple Juice,ZELTER,2513,12.0,Tropical,220,Austin,TX,Pineapple Bliss
 14,140,5.3,40,114,Ginger-Apple Juice,KIZILAY,2514,14.0,Spicy,210,Boston,MA,Apple Spice
 15,150,5.2,60,115,Tropical Juice,GINGER_ALE,2515,8.0,Tropical,250,Seattle,WA,Tropical Kick
@@ -20,10 +20,10 @@ row,count.x,abv,ibu,id,drink,style,manufacture_id,ounces,style2,count.y,city,sta
 19,180,6.0,50,119,Passion Fruit Juice,GINGER_ALE,2519,12.0,Tropical,240,San Diego,CA,Passion Delight
 20,200,5.1,40,120,Lychee Juice,KIZILAY,2520,16.0,Tropical,220,Portland,OR,Exotic Lychee
 21,150,5.0,45,121,Lemon Iced Tea,ZELTER,2521,10.0,Citrus,250,Seattle,WA,Iced Lemon Tea
-22,130,6.2,30,122,Watermelon Juice,GINGER_ALE,2522,12.0,Sweet,240,Austin,TX,Watermelon Bliss
+22,130,6.2,30,122,Kola,GINGER_ALE,2522,12.0,Sweet,240,Austin,TX,Kola
 23,160,5.3,40,123,Grape Juice,KIZILAY,2523,14.0,Sweet,230,Denver,CO,Grape Fresh
 24,140,5.5,35,124,Orange-Apple Juice,ZELTER,2524,8.0,Citrus,210,Chicago,IL,Apple Orange
-25,150,5.2,45,125,Cucumber Lemonade,GINGER_ALE,2525,12.0,Herbal,200,New York,NY,Cucumber Fresh
+25,150,5.2,45,125,Lemonade,GINGER_ALE,2525,12.0,Herbal,200,New York,NY,Fresh
 26,120,6.1,60,126,Peach-Apple Juice,KIZILAY,2526,14.0,Sweet,230,Portland,OR,Peach Apple Bliss
 27,130,5.0,50,127,Papaya Juice,ZELTER,2527,10.0,Tropical,210,Los Angeles,CA,Papaya Rush
 28,100,5.4,45,128,Tropical Juice,GINGER_ALE,2528,12.0,Tropical,230,Portland,OR,Tropical Guava

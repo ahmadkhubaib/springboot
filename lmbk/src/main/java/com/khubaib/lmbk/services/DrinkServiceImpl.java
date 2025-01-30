@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import com.khubaib.lmbk.dto.DrinkDTO;
@@ -73,9 +74,9 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public List<DrinkDTO> listDrinks(String drinkName) {
+    public Page<DrinkDTO> listDrinks(String drinkName, DrinkStyle drinkStyle, boolean showInventory, Integer pageSize, Integer pageNumber) {
         log.debug("in list drink");
-        return new ArrayList<>(drinkMap.values());
+        return new PageImpl<>(new ArrayList<>(drinkMap.values()));
     }
 
     @Override
