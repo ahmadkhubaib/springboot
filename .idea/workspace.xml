@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3615b441-15c6-4d09-b1f8-49953a2654d5" name="Changes" comment="added pagination and sorting">
-      <change afterPath="$PROJECT_DIR$/lmbk/src/main/resources/db/migration/V3__add_drink_order_line_and_order.sql" afterDir="false" />
+    <list default="true" id="3615b441-15c6-4d09-b1f8-49953a2654d5" name="Changes" comment="fix test">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/springboot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lmbk/src/test/java/com/khubaib/lmbk/controllers/DrinkControllerIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/lmbk/src/test/java/com/khubaib/lmbk/controllers/DrinkControllerIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +272,7 @@
       <workItem from="1738361798664" duration="95000" />
       <workItem from="1738361902857" duration="34000" />
       <workItem from="1738361937529" duration="13000" />
-      <workItem from="1738361955364" duration="685000" />
+      <workItem from="1738361955364" duration="922000" />
     </task>
     <task id="LOCAL-00001" summary="added query params">
       <option name="closed" value="true" />
@@ -312,7 +306,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738263848019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added drink order and order line migration">
+      <option name="closed" value="true" />
+      <created>1738362818803</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738362818803</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix test">
+      <option name="closed" value="true" />
+      <created>1738362842542</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738362842542</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +356,9 @@
     <MESSAGE value="added some tests" />
     <MESSAGE value="added some CustomerRepositoryTest" />
     <MESSAGE value="added pagination and sorting" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pagination and sorting" />
+    <MESSAGE value="added drink order and order line migration" />
+    <MESSAGE value="fix test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
