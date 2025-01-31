@@ -77,7 +77,7 @@ public class DrinkControllerIT {
                 )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()",is(11)))
-                .andExpect(jsonPath("$.[0].quantityOnHand").value(IsNull.notNullValue()));
+                .andExpect(jsonPath("$.content[0].quantityOnHand").value(IsNull.notNullValue()));
     }
 
     @Test
