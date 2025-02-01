@@ -42,7 +42,7 @@ public class Customer {
     @Column(length = 50)
     private String customerName;
 
-    @Column(length = 255)
+    @Column(length = 50)
     private String customerEmail;
 
     @CreatedDate
