@@ -1,6 +1,7 @@
 package com.khubaib.lmbk.entities;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -49,10 +50,10 @@ public class Customer {
     @Column(updatable = false)
     private LocalDateTime createdDate;
 
-
     @UpdateTimestamp
     private LocalDateTime lastModifiedDate;
 
+    @Builder.Default
     @OneToMany(mappedBy = "customer")
-    private Set<DrinkOrder> drinkOrders;
+    private Set<DrinkOrder> drinkOrders = new HashSet<>();
 }

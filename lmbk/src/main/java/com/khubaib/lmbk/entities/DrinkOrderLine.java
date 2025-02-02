@@ -8,7 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.type.SqlTypes;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Getter
@@ -36,10 +36,10 @@ public class DrinkOrderLine {
 
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createdDate;
+    private Timestamp createdDate;
 
     @UpdateTimestamp
-    private LocalDateTime lastModifiedDate;
+    private Timestamp lastModifiedDate;
 
     @ManyToOne
     private DrinkOrder drinkOrder;

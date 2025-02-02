@@ -54,11 +54,9 @@ public class Drink {
     @NotNull
     private String upc;
 
-
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdDate;
-
 
     @UpdateTimestamp
     private LocalDateTime updatedDate;
