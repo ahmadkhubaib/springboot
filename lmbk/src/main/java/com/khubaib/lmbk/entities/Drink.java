@@ -2,6 +2,7 @@ package com.khubaib.lmbk.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -58,10 +59,26 @@ public class Drink {
     @Column(updatable = false)
     private LocalDateTime createdDate;
 
+    @Builder.Default
+    @ManyToMany
+    @JoinTable(name = "drink_category",
+            joinColumns = @JoinColumn(name = "drink_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories = new HashSet<>();
+
     @UpdateTimestamp
     private LocalDateTime updatedDate;
 
     @OneToMany(mappedBy = "drink")
     private Set<DrinkOrderLine> drinkOrderLines;
 
+    public void addCategory(Category category) {
+        this.categories.add(category);
+        category.getDrinks().add(this);
+    }
+
+    public void removeCategory(Category category) {
+        this.categories.remove(category);
+        category.getDrinks().remove(this);
+    }
 }
